@@ -84,7 +84,7 @@ public class CheetahSearchApi {
     }
 
     public Result[] getBookByTopic(String topic) {
-        Mono<Result[]> cheetahMono = webClient
+        Mono<Result[]> cheetahMono = webClient 
                 .get()
                 .uri(uriBuilder -> uriBuilder
                         .queryParam("q", topic)
