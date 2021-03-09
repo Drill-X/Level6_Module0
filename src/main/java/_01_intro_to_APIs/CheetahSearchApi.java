@@ -45,6 +45,7 @@ public class CheetahSearchApi {
         This uri is where are making our GET request the resulting uri would look like:
         https://cheetah.api.jointheleague.org/searchLocResults?q=java
         */
+    	
         Mono<String> stringMono = webClient
         		.get()
                 .uri(uriBuilder -> uriBuilder
