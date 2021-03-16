@@ -58,9 +58,9 @@ class CarTest {
 
 
     @Test
-    void itShouldGetFuelLevel() {
+    void itShouldGetFuelLevel() { 
         //given
-        double expectedFuelLevelGallons = 12d;
+        double expectedFuelLevelGallons = 12d; 
         //The following line stubs the gasTank.getFuelLevel() method, so that it will return a value when it is invoked
         when(gasTank.getFuelLevel()).thenReturn(expectedFuelLevelGallons);
 
