@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -26,19 +27,24 @@ import static org.mockito.Mockito.*;
 class NewsApiTest {
 
     NewsApi newsApi;
-
+    
     @BeforeEach
     void setUp() {
-
+    	MockitoAnnotations.openMocks(this);
+    	
+    	newsApi = new NewsApi();
     }
 
     @Test
-    void itShouldGetNewsStoryByTopic() {
+    void itShouldGetNewsStoryByTopic() { 
         //given
-
+    	
+    	
         //when
-
+    	ApiExampleWrapper storyByTopic = newsApi.getNewsStoryByTopic("topic"); 
+    	
         //then
+    	assertNotEquals(storyByTopic, null);
     }
 
     @Test
@@ -46,8 +52,10 @@ class NewsApiTest {
         //given
 
         //when
-
+    	String story = newsApi.findStory("topic");
+    	
         //then
+    	assertNotEquals(story, null);
     }
 
 

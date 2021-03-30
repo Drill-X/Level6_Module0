@@ -57,19 +57,24 @@ class MyDonutShopTest {
     	when(order.getNumberOfDonuts()).thenReturn(10);
     	
         //when
+    	myDonutShop.openForTheDay();
+    	
         //then
-    	Throwable exceptionThrown = assertThrows(Exception.class, () -> myDonutShop.addOrder(order));
+    	Throwable exceptionThrown = assertThrows(Exception.class, () -> myDonutShop.takeOrder(order));
         assertEquals(exceptionThrown.getMessage(), "Insufficient donuts remaining");
         verify(deliveryService, never()).scheduleDelivery(order);
     }
 
     @Test
-    void givenNotOpenForBusiness_whenTakeOrder_thenThrowIllegalStateException(){
+    void givenNotOpenForBusiness_whenTakeOrder_thenThrowIllegalStateException() throws Exception{
         //given
-
+    	
         //when
-
+    	
         //then
+    	Throwable exceptionThrown = assertThrows(Exception.class, () -> myDonutShop.takeOrder(order));
+        assertEquals(exceptionThrown.getMessage(), "Sorry we're currently closed");
+        verify(deliveryService, never()).scheduleDelivery(order);
     }
 
 }
